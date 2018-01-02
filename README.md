@@ -277,6 +277,10 @@ You will need to set all necessary authentication token (like `GH_TOKEN` and `NP
 
 You can trigger a release by pushing to your GitHub repository. You deliberately cannot trigger a _specific_ version release, because this is the whole point of `semantic-release`. Start your packages with `1.0.0` and semver on.  
 
+### Can I exclude commits from the analysis?
+
+Yes, every commits that contains `[skip release]` or `[release skip]` in their message will be excluded from the commit analysis and won't participate in the release type determination.
+
 ### Is it _really_ a good idea to release on every push?
 
 It is indeed a great idea because it _forces_ you to follow best practices. If you don’t feel comfortable making every passing feature or fix on your master branch addressable via `npm` you might not treat your master right. Have a look at [branch workflows](https://guides.github.com/introduction/flow/index.html). If you still think you should have control over the exact point in time of your release, e.g. because you are following a release schedule, you can release only on the `production`/`deploy`/`release` branch and push your code there in certain intervals, or better yet use [dist-tags](https://docs.npmjs.com/cli/dist-tag).
